@@ -1,6 +1,32 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     background-color: aliceblue;
+}
+
+body {
+    height: 100vh;
+
+}
+
+header {
+    padding: 0 10px;
+    background-color: rgb(196, 202, 200);
+    height: 150px;
+}
+
+footer {
+    background-color: rgb(109, 224, 224);
+}
+
+.main-canvas{
+    background-color: rgb(233, 193, 193);
+    height: 100%;
+}
+
+
+.main-editor-page {
+    align-self: center;
+    justify-self: center;
 }

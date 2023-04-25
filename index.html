@@ -7,56 +7,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get a meme!</title>
     <link rel="stylesheet" href="css/helpers.css">
+    <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body onload="onInit()">
+<body onload="">
 
-    <header class="main-header">
-        <section class="logo"></section>
-        <nav class="main-nav">
-            <button class="btn nav-btn">Galley</button>
-            <button class="btn nav-btn">Meme Editor</button>
-            <button class="btn nav-btn">Saved Memes</button>
-            <button class="btn nav-btn">About</button>
-        </nav>
-    </header>
+    <div class="main-layout">
 
-    <main class="main-content">
+        <header class="main-header full flex align-center space-between">
+            <section class="logo">logo</section>
+            <nav class="main-nav">
+                <button class="btn nav-btn">Gallery</button>
+                <button class="btn nav-btn">Meme Editor</button>
+                <button class="btn nav-btn">Saved Memes</button>
+                <button class="btn nav-btn">About</button>
+            </nav>
+        </header>
 
-        <section class="search-section">
-
-            <label for="search-box"></label>
-            <input list="keywords" id="search-box" name="search-box">
-            
-            <datalist class="keywords-options" id="keywords">
-                <option value="Funny">
-                <option value="Animal">
-                <option value="Man">
-                <option value="Women">
-                <option value="Sorry">
-                <option value="Baby">
-            </datalist>
-            
-            <section class="keywords-storage flex">                        <!-- מחסן מילים -->
-                <article>Funny</article>
-                <article>Animal</article>
-                <article>Man</article>
-                <article>Women</article>
-                <article>Sorry</article>
-                <article>Baby</article>
+        <div class="main-editor-page">
+            <section class="canvas-container flex">
+                <canvas class="main-canvas" id="my-canvas" height="450" width="450" onclick="">
+                </canvas>
             </section>
 
-        </section>
+            <section class="editor-tools">
+                <section class="text-tools"></section>
+                <section class="font-tools"></section>
+                <section class="gif-tools"></section>
+                <section class="share-options"></section>
+            </section>
+        </div>
+    
+
+        <main class="main-gallery-page" hidden>
+
+            <section class="search-section flex align-center space-between">
+
+                <input list="keywords" id="search-box" name="search-box" placeholder="search">
+
+                <datalist class="keywords-options" id="keywords">
+                    <option value="Funny">
+                    <option value="Animal">
+                    <option value="Man">
+                    <option value="Women">
+                    <option value="Sorry">
+                    <option value="Baby">
+                </datalist>
+
+                <section class="keywords-storage flex align-center space-between"> <!-- מחסן מילים -->
+                    <article>Funny</article>
+                    <article>Animal</article>
+                    <article>Man</article>
+                    <article>Women</article>
+                    <article>Sorry</article>
+                    <article>Baby</article>
+                </section>
+
+            </section>
 
 
-        <section class="gallery-container">
+            <section class="gallery-container">
+
+            </section>
 
 
-        </section>
+        </main>
 
-        <footer></footer>
-    </main>
+
+
+        <footer class="full"></footer>
+    </div>
+
+
+
+
+
+
+
 
     <script src="js/utils.js"></script>
     <script src="js/image-service.js"></script>
