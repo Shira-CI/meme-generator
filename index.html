@@ -1,12 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documen</title>
+    <title>Get a meme!</title>
+    <link rel="stylesheet" href="css/helpers.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
-    <div></div>
+
+<body onload="onInit()">
+
+    <header class="main-header">
+        <section class="logo"></section>
+        <nav class="main-nav">
+            <button class="btn nav-btn">Galley</button>
+            <button class="btn nav-btn">Meme Editor</button>
+            <button class="btn nav-btn">Saved Memes</button>
+            <button class="btn nav-btn">About</button>
+        </nav>
+    </header>
+
+    <main class="main-content">
+
+        <section class="search-section">
+
+            <label for="search-box"></label>
+            <input list="keywords" id="search-box" name="search-box">
+            
+            <datalist class="keywords-options" id="keywords">
+                <option value="Funny">
+                <option value="Animal">
+                <option value="Man">
+                <option value="Women">
+                <option value="Sorry">
+                <option value="Baby">
+            </datalist>
+            
+            <section class="keywords-storage flex">                        <!-- מחסן מילים -->
+                <article>Funny</article>
+                <article>Animal</article>
+                <article>Man</article>
+                <article>Women</article>
+                <article>Sorry</article>
+                <article>Baby</article>
+            </section>
+
+        </section>
+
+
+        <section class="gallery-container">
+
+
+        </section>
+
+        <footer></footer>
+    </main>
+
+    <script src="js/utils.js"></script>
+    <script src="js/image-service.js"></script>
+    <script src="js/meme-service.js"></script>
+    <script src="js/image-controller.js"></script>
+    <script src="js/meme-controller.js"></script>
 </body>
+
 </html>
