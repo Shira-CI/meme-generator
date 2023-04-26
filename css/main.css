@@ -5,15 +5,44 @@
     background-color: aliceblue;
 }
 
-body {
-    height: 100vh;
+.main-gallery-page{
+    display: grid;
+    display: none;
+}
 
+.card{
+    width: 100px;
+    height: 100px;
+}
+.card img{
+    width: 100%;
+    height: 100%;
+}
+
+.text-box{
+    padding: 5px;
+}
+
+.main-editor-page{
+    /* display: none; */
+
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+    background-color: rgb(216, 217, 218);
+}
+
+.editor-tools{
+    flex-direction: row;
+    width: 350px;
+    height: 350px;
+    border: 1px solid black;
 }
 
 header {
     padding: 0 10px;
     background-color: rgb(196, 202, 200);
-    height: 150px;
+    /* height: 150px; */
 }
 
 footer {

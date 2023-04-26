@@ -1,18 +1,57 @@
 'use strict'
 
-const gElCanvas = document.querySelector('#my-canvas')
-const gCtx = gElCanvas.getContext('2d')
-console.log('gCtx' , gCtx)
-renderMeme()
+let gCtx=''
+let gElCanvas=''
 
 
-
-function renderMeme(){
-    drawImg()
-    console.log(gMeme.lines[0].txt)
-    drawText(gMeme.lines[0].txt, gElCanvas.width / 2, gElCanvas.height / 2)
+function onInit() {
+     gElCanvas = document.querySelector('#my-canvas')
+     gCtx = gElCanvas.getContext('2d')
+    renderMeme()
+    renderGallery()
 }
 
 
-  
+
+function onSwitchLine(){
+
+}
+
+
+function onDecreaseTxt(){
+    decreaseTxt()
+    renderMeme()
+
+}
+
+function onIncreaseTxt(){
+    increaseTxt()
+    renderMeme()
+
+}
+
+
+function onColorPick(color){
+    // console.log(color)
+    setColor(color)
+    renderMeme()
+}
+
+function onTxt(txt){
+    // console.log(txt)
+    setLineTxt(txt)
+    renderMeme()
+}
+
+function renderMeme() {
+    const elImg = new Image()
+    elImg.src = gImgs[gMeme.selectedImgId].url
+    elImg.onload = () => {
+        gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
+        let currMeme = getMeme()
+        drawText(currMeme.lines[0].txt, gElCanvas.width / 2, gElCanvas.height / 2)
+    }
+}
+
+
 

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body onload="">
+<body onload="onInit()">
 
     <div class="main-layout">
 
@@ -25,22 +25,34 @@
             </nav>
         </header>
 
-        <div class="main-editor-page">
+        <div class="main-editor-page flex align-center">
             <section class="canvas-container flex">
-                <canvas class="main-canvas" id="my-canvas" height="450" width="450" onclick="">
+                <canvas class="main-canvas" id="my-canvas" height="350" width="350" onclick="">
                 </canvas>
             </section>
 
-            <section class="editor-tools">
-                <section class="text-tools"></section>
-                <section class="font-tools"></section>
+            <section class="editor-tools flex align-center justify-center">
+                <section class="text-box-container">
+                    <label for="text-box"></label>
+                    <input type="text" class="text-box" id="text-box" name="text-box" oninput="onTxt(this.value)"
+                        placeholder="Enter your text">
+                </section>
+                <section class="text-tools">
+                    <article class="color-picker-container">
+                        <label for="color-picker"></label>
+                        <input class="color-picker" type="color" name="color-picker" id="color-picker" oninput="onColorPick(this.value)"/>
+                    </article>
+                    <button class="increase-text" onclick="onIncreaseTxt()"> increase</button>
+                    <button class="decrease-text" onclick="onDecreaseTxt()"> decrease</button>
+                    <button class="switch-line" onclick="onSwitchLine()"> switch line</button>
+                </section>
                 <section class="gif-tools"></section>
                 <section class="share-options"></section>
             </section>
         </div>
-    
 
-        <main class="main-gallery-page" hidden>
+
+        <main class="main-gallery-page">
 
             <section class="search-section flex align-center space-between">
 
@@ -74,8 +86,6 @@
 
         </main>
 
-
-
         <footer class="full"></footer>
     </div>
 
@@ -87,9 +97,9 @@
 
 
     <script src="js/utils.js"></script>
-    <script src="js/image-service.js"></script>
+    <script src="js/gallery-service.js"></script>
     <script src="js/meme-service.js"></script>
-    <script src="js/image-controller.js"></script>
+    <script src="js/gallery-controller.js"></script>
     <script src="js/meme-controller.js"></script>
 </body>
 
