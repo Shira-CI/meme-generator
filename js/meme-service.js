@@ -7,36 +7,84 @@ let gMeme = {
     selectedImgId: 0,
     selectedLineIdx: 0,
     lines: [
-        {
-            txt: 'I sometimes eat Falafel',
-            size: 20,
-            align: 'center',
-            color: 'yellow'
-        },
-        {
-            txt: ' Falafel',
-            size: 10,
-            align: 'left',
-            color: 'red'
-        }
+        // {
+        //     txt: 'I sometimes eat Falafel',
+        //     size: 20,
+        //     align: 'center',
+        //     color: 'yellow',
+        //     posX: gElCanvas.width / 2,
+        //     posY: gElCanvas.height / 2
+        // }
+        // {
+        //     txt: ' Falafel',
+        //     size: 10,
+        //     align: 'left',
+        //     color: 'red',
+        //     pos: {x,y}
+
+        // }
     ]
 }
 
-function handleLine(){
-    gMeme.lines.map
+
+
+
+
+function switchLine() {
+    if (gMeme.lines.length === 0) return
+    if (gMeme.selectedLineIdx === gMeme.lines.length - 1) gMeme.selectedLineIdx = 0
+    else gMeme.selectedLineIdx++
+    createFocus()
 }
 
-function switchLine(){
-
+function getLines(){
+    return gMeme.lines
 }
 
-function decreaseTxt(){
+function getLine() {
+    return gMeme.lines[gMeme.selectedLineIdx]
+}
+
+function createLine() {
+    if (gMeme.lines.length > 2) return
+    let positionX
+    let positionY
+
+    if (gMeme.lines.length === 0) {
+        positionX = gElCanvas.width / 2
+        positionY = gElCanvas.height / 2
+    } else if (gMeme.lines.length === 1) {
+        positionX = gElCanvas.width / 2
+        positionY = gElCanvas.height / 4
+        gMeme.selectedLineIdx++
+    } else if (gMeme.lines.length === 2) {
+        positionX = gElCanvas.width / 2
+        positionY = gElCanvas.height * 0.75
+        gMeme.selectedLineIdx++
+    }
+
+    const newLine = {
+        txt: 'Write your text here',
+        size: 20,
+        align: 'center',
+        color: 'yellow',
+        posX: positionX,
+        posY: positionY
+    }
+
+    gMeme.lines.push(newLine)
+    // console.log(gMeme)
+}
+
+
+
+function decreaseTxt() {
     gMeme.lines[gMeme.selectedLineIdx].size -= 5
 }
 
 
 
-function increaseTxt(){
+function increaseTxt() {
     gMeme.lines[gMeme.selectedLineIdx].size += 5
 }
 
@@ -62,18 +110,19 @@ function getMeme() {
 
 
 
-function drawText(text, x, y) {
-    let currLine = gMeme.lines[gMeme.selectedLineIdx]
+function drawText() {
+    let lines = gMeme.lines
+    lines.map((line) => {
+        gCtx.lineWidth = 2
+        gCtx.strokeStyle = line.color
+        gCtx.fillStyle = line.color
+        gCtx.font = line.size + 'px Arial'
+        gCtx.textAlign = line.align
+        gCtx.textBaseline = 'middle'
 
-    gCtx.lineWidth = 2
-    gCtx.strokeStyle = currLine.color
-    gCtx.fillStyle = currLine.color
-    gCtx.font = currLine.size + 'px Arial'
-    gCtx.textAlign = currLine.align
-    gCtx.textBaseline = 'middle'
-
-    gCtx.fillText(text, x, y)
-    gCtx.strokeText(text, x, y)
+        gCtx.fillText(line.txt, line.posX, line.posY)
+        gCtx.strokeText(line.txt, line.posX, line.posY)
+    })
 }
 
 function showMeme() {
@@ -83,4 +132,6 @@ function showMeme() {
     const elEditorContainer = document.querySelector('.main-editor-page')
     elEditorContainer.style.display = 'flex'
 }
+
+
 

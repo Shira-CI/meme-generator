@@ -18,8 +18,8 @@
         <header class="main-header full flex align-center space-between">
             <section class="logo">logo</section>
             <nav class="main-nav">
-                <button class="btn nav-btn">Gallery</button>
-                <button class="btn nav-btn">Meme Editor</button>
+                <button class="btn nav-btn" onclick="OnGalleryBtn()">Gallery</button>
+                <button class="btn nav-btn" onclick="OnEditorBtn()">Meme Editor</button>
                 <button class="btn nav-btn">Saved Memes</button>
                 <button class="btn nav-btn">About</button>
             </nav>
@@ -34,7 +34,7 @@
             <section class="editor-tools flex align-center justify-center">
                 <section class="text-box-container">
                     <label for="text-box"></label>
-                    <input type="text" class="text-box" id="text-box" name="text-box" oninput="onTxt(this.value)"
+                    <input type="text" class="text-box" id="text-box" name="text-box" oninput="onTxtInput(this.value)"
                         placeholder="Enter your text">
                 </section>
                 <section class="text-tools">
@@ -44,6 +44,7 @@
                     </article>
                     <button class="increase-text" onclick="onIncreaseTxt()"> increase</button>
                     <button class="decrease-text" onclick="onDecreaseTxt()"> decrease</button>
+                    <button class="switch-line" onclick="onAddLine()"> add line</button>
                     <button class="switch-line" onclick="onSwitchLine()"> switch line</button>
                 </section>
                 <section class="gif-tools"></section>

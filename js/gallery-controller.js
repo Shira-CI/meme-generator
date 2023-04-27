@@ -1,5 +1,10 @@
 'use strict'
 
+
+function OnGalleryBtn(){
+showGallery()
+}
+
 function renderGallery() {
     const elGalleryContainer = document.querySelector('.main-gallery-page')
     // console.log(elGalleryContainer)
