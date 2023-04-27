@@ -6,27 +6,27 @@ let gCurrColor
 let gMeme = {
     selectedImgId: 0,
     selectedLineIdx: 0,
-    lines: [
-        // {
-        //     txt: 'I sometimes eat Falafel',
-        //     size: 20,
-        //     align: 'center',
-        //     color: 'yellow',
-        //     posX: gElCanvas.width / 2,
-        //     posY: gElCanvas.height / 2
-        // }
-        // {
-        //     txt: ' Falafel',
-        //     size: 10,
-        //     align: 'left',
-        //     color: 'red',
-        //     pos: {x,y}
-
-        // }
-    ]
+    lines: []
 }
 
 
+// function deleteLine(){
+//     gMeme.lines.splice(gMeme.selectedLineIdx , 1)
+// }
+
+
+
+function fontChange(value){
+    const line = getLine()
+    line.font = value
+}
+
+
+function alignText(value, canvasWidth) {
+    if (value === 'left') gMeme.lines[gMeme.selectedLineIdx].posX = gMeme.lines[gMeme.selectedLineIdx].txtWidth / 2 + 12
+    else if (value === 'right') gMeme.lines[gMeme.selectedLineIdx].posX = canvasWidth - gMeme.lines[gMeme.selectedLineIdx].txtWidth / 2 - 12
+    else gMeme.lines[gMeme.selectedLineIdx].posX = canvasWidth / 2 
+}
 
 
 
@@ -37,7 +37,7 @@ function switchLine() {
     createFocus()
 }
 
-function getLines(){
+function getLines() {
     return gMeme.lines
 }
 
@@ -67,15 +67,25 @@ function createLine() {
         txt: 'Write your text here',
         size: 20,
         align: 'center',
-        color: 'yellow',
+        color: 'white',
+        font: 'Impact',
+        stroke: 'black',
         posX: positionX,
-        posY: positionY
+        posY: positionY,
+        isClicked: true,
+        txtWidth: 0
     }
 
     gMeme.lines.push(newLine)
+    // updateTxtWidth()
     // console.log(gMeme)
 }
 
+// function updateTxtWidth(){
+//     const line = getLine()
+//    line.txtWidth = gCtx.measureText(line.txt).width
+//    console.log(line.txtWidth)
+// }
 
 
 function decreaseTxt() {
@@ -109,21 +119,6 @@ function getMeme() {
 }
 
 
-
-function drawText() {
-    let lines = gMeme.lines
-    lines.map((line) => {
-        gCtx.lineWidth = 2
-        gCtx.strokeStyle = line.color
-        gCtx.fillStyle = line.color
-        gCtx.font = line.size + 'px Arial'
-        gCtx.textAlign = line.align
-        gCtx.textBaseline = 'middle'
-
-        gCtx.fillText(line.txt, line.posX, line.posY)
-        gCtx.strokeText(line.txt, line.posX, line.posY)
-    })
-}
 
 function showMeme() {
     const elGalleryContainer = document.querySelector('.main-gallery-page')

@@ -25,28 +25,55 @@
             </nav>
         </header>
 
-        <div class="main-editor-page flex align-center">
+        <div class="main-editor-page flex align-center ">
             <section class="canvas-container flex">
                 <canvas class="main-canvas" id="my-canvas" height="350" width="350" onclick="">
                 </canvas>
             </section>
 
             <section class="editor-tools flex align-center justify-center">
+
                 <section class="text-box-container">
                     <label for="text-box"></label>
                     <input type="text" class="text-box" id="text-box" name="text-box" oninput="onTxtInput(this.value)"
                         placeholder="Enter your text">
                 </section>
-                <section class="text-tools">
-                    <article class="color-picker-container">
+
+                <section class="text-tools ">
+
+                    <article class="color-picker-container flex align-center justify-center">
                         <label for="color-picker"></label>
-                        <input class="color-picker" type="color" name="color-picker" id="color-picker" oninput="onColorPick(this.value)"/>
+                        <input class="color-picker" type="color" name="color-picker" id="color-picker"
+                            oninput="onColorPick(this.value)" />
                     </article>
-                    <button class="increase-text" onclick="onIncreaseTxt()"> increase</button>
-                    <button class="decrease-text" onclick="onDecreaseTxt()"> decrease</button>
-                    <button class="switch-line" onclick="onAddLine()"> add line</button>
-                    <button class="switch-line" onclick="onSwitchLine()"> switch line</button>
+
+                    <article class="font-family flex align-center justify-center">
+                        <select name="font-change" class="font-change" onchange="onFontChange(this.value)">
+                            <option value="Impact">Impact</option>
+                            <option value="Arial">Arial</option>
+                            <option value="serif">Times New Roman</option>
+                        </select>
+                    </article>
+
+                    <article class="alignments flex align-center justify-center">
+                        <button class="alignment-left" onclick="onAlignBtn('left')">alignment-left</button>
+                        <button class="alignment-center" onclick="onAlignBtn('center')">alignment-center</button>
+                        <button class="alignment-right" onclick="onAlignBtn('right')">alignment-right</button>
+                    </article>
+
+                    <article class="font-size flex align-center justify-center">
+                        <button class="increase-text" onclick="onIncreaseTxt()"> increase</button>
+                        <button class="decrease-text" onclick="onDecreaseTxt()"> decrease</button>
+                    </article>
+
+                    <article class="switch-line flex align-center justify-center">
+                        <button class="switch-line" onclick="onAddLine()"> add line</button>
+                        <button class="switch-line" onclick="onDeleteLine()"> delete line</button>
+                        <button class="switch-line" onclick="onSwitchLine()"> switch line</button>
+                    </article>
+
                 </section>
+
                 <section class="gif-tools"></section>
                 <section class="share-options"></section>
             </section>

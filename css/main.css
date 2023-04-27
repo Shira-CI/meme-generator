@@ -4,12 +4,24 @@
     padding: 0;
     background-color: aliceblue;
 }
+button {
+    margin: 5px;
+    padding: 3px;
+}
 
 .main-gallery-page {
     width: 100%;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     /* display: none; */
+}
+
+.color-picker{
+    margin-bottom: 5px;
+}
+
+.text-box-container{
+    height: 30px;
 }
 
 .card {
@@ -36,15 +48,17 @@
 }
 
 .editor-tools {
-    flex-direction: row;
+    flex-direction: column;
+    gap: 10px;
     width: 350px;
     height: 350px;
     border: 1px solid black;
+
 }
 
 header {
     padding: 0 10px;
-    background-color: rgb(196, 202, 200);
+    background-color: rgb(217, 228, 238);
     /* height: 150px; */
 }
 
@@ -61,4 +75,8 @@ footer {
 .main-editor-page {
     align-self: center;
     justify-self: center;
+}
+
+footer{
+    background-color: rgb(216, 232, 247);
 }

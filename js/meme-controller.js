@@ -13,6 +13,23 @@ function onInit() {
     addListeners()
 }
 
+
+function onDeleteLine(){
+    deleteLine()
+}
+
+
+function onFontChange(value){
+    fontChange(value)
+    renderMeme()
+}
+
+function onAlignBtn(value) {
+    alignText(value , gElCanvas.width)
+    drawText()
+    renderMeme()
+}
+
 function addListeners() {
     addMouseListeners()
     // addTouchListeners()
@@ -23,6 +40,7 @@ function addListeners() {
 }
 
 function checkPos(pos) {
+    const meme = getMeme()
     const lines = getLines()
     if (!lines.length) return
     // console.log(lines)
@@ -35,14 +53,17 @@ function checkPos(pos) {
         return pos.x > minX && pos.x < maxX && pos.y > minY && pos.y < maxY
     })
     // console.log(lineIdx)
-    if (lineIdx === -1) return
-    const meme = getMeme()
-    // console.log(meme)
-    meme.selectedLineIdx = lineIdx
-    createFocus()
-    updateTextBox()
-    renderMeme()
-
+    if (lineIdx === -1) {
+        meme.lines[meme.selectedLineIdx].isClicked = false
+        resetTextBox()
+        renderMeme()
+    } else {
+        meme.lines[meme.selectedLineIdx].isClicked = true
+        meme.selectedLineIdx = lineIdx
+        createFocus()
+        updateTextBox()
+        renderMeme()
+    }
 }
 
 
@@ -73,9 +94,8 @@ function getEvPos(ev) {
         x: ev.offsetX,
         y: ev.offsetY,
     }
-    // console.log(pos)
 
-    // console.log('pos:', pos)
+    console.log('pos:', pos)
     // Check if its a touch ev
     // if (TOUCH_EVS.includes(ev.type)) {
     //   //soo we will not trigger the mouse ev
@@ -95,15 +115,38 @@ function getEvPos(ev) {
 }
 
 
+function drawText() {
+    let lines = gMeme.lines
+    lines.map((line) => {
+   
+        gCtx.lineWidth = 1
+        gCtx.strokeStyle = line.stroke
+        gCtx.fillStyle = line.color
+        gCtx.font = `${line.size}px ${line.font}`
+        gCtx.textAlign = line.align
+        gCtx.textBaseline = 'middle'
+
+        gCtx.fillText(line.txt, line.posX, line.posY)
+        gCtx.strokeText(line.txt, line.posX, line.posY)
+    })
+}
+
+
 function createFocus() {
-    const line = getLine();
+    const line = getLine()
     // console.log(line)
-    if (!line) return;
-    gCtx.beginPath();
+
+    if (!line) return
+    if (!line.isClicked) return
+    
+    const txtWidth = gCtx.measureText(line.txt).width
+    line.txtWidth = txtWidth
+
+    gCtx.beginPath()
     gCtx.rect(
-        line.posX - (gCtx.measureText(line.txt).width) / 2 - 10,
+        line.posX - line.txtWidth / 2 -10,
         line.posY - 20,
-        gCtx.measureText(line.txt).width + 20,
+        line.txtWidth +20,
         line.size + 20
     );
     gCtx.lineWidth = 2;
@@ -121,12 +164,14 @@ function onAddLine() {
 }
 
 function renderMeme() {
+
     const elImg = new Image()
     elImg.src = gImgs[gMeme.selectedImgId].url
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
         // let currMeme = getMeme()
         drawText()
+
         createFocus()
         // drawText(currMeme.lines[0].txt, , gElCanvas.height / 2)
     }
@@ -144,7 +189,7 @@ function updateTextBox() {
 }
 
 function resetTextBox() {
-    let currLine = getLine()
+    // let currLine = getLine()
     let elTextBox = document.querySelector('.text-box')
     // console.log(elTextBox)
     elTextBox.value = ''
