@@ -2,6 +2,7 @@
 
 let gCtx = ''
 let gElCanvas = ''
+let gStartPos
 
 
 function onInit() {
@@ -13,19 +14,34 @@ function onInit() {
     addListeners()
 }
 
+function onDownloadMeme(elLink){
+    const imgContent = gElCanvas.toDataURL('image/jpeg') // image/jpeg the default format
+    elLink.href = imgContent
+}
 
-function onDeleteLine(){
+function onMoveUp(){
+    moveUpTxt()
+    renderMeme()
+}
+
+function onMoveDown() {
+    movedownTxt()
+    renderMeme()
+}
+
+function onDeleteLine() {
     deleteLine()
+    renderMeme()
 }
 
 
-function onFontChange(value){
+function onFontChange(value) {
     fontChange(value)
     renderMeme()
 }
 
 function onAlignBtn(value) {
-    alignText(value , gElCanvas.width)
+    alignText(value, gElCanvas.width)
     drawText()
     renderMeme()
 }
@@ -57,36 +73,57 @@ function checkPos(pos) {
         meme.lines[meme.selectedLineIdx].isClicked = false
         resetTextBox()
         renderMeme()
+        return false
     } else {
         meme.lines[meme.selectedLineIdx].isClicked = true
         meme.selectedLineIdx = lineIdx
         createFocus()
         updateTextBox()
         renderMeme()
+        return true
     }
 }
 
 
 function addMouseListeners() {
     gElCanvas.addEventListener('mousedown', onDown)
-    // gElCanvas.addEventListener('mousemove', onMove)
-    // gElCanvas.addEventListener('mouseup', onUp)
+    gElCanvas.addEventListener('mousemove', onMove)
+    gElCanvas.addEventListener('mouseup', onUp)
 }
 
 function onDown(ev) {
-    // Get the ev pos from mouse or touch
     const pos = getEvPos(ev)
-    // console.log(pos)
     checkPos(pos)
     // console.log('pos:', pos)
-    // if (!isCircleClicked(pos)) return
-
-    // console.log('Down')
-    // setCircleDrag(true)
-    //Save the pos we start from
-    // gStartPos = pos
-    // document.body.style.cursor = 'grabbing'
+    if (!checkPos(pos)) return
+    setLineDrag(true)
+    gStartPos = pos
+    document.body.style.cursor = 'grabbing'
 }
+
+function onMove(ev) {
+    const { isDrag } = getLine()
+    if (!isDrag) return
+    // console.log('Move')
+  
+    const pos = getEvPos(ev)
+    const dx = pos.x - gStartPos.x
+    const dy = pos.y - gStartPos.y
+    moveLine(dx, dy)
+    gStartPos = pos
+    renderMeme()
+  }
+  
+  function onUp() {
+    // console.log('Up')
+    setLineDrag(false)
+    document.body.style.cursor = 'grab'
+  }
+
+
+
+
+
 
 function getEvPos(ev) {
     // Gets the offset pos , the default pos
@@ -118,7 +155,7 @@ function getEvPos(ev) {
 function drawText() {
     let lines = gMeme.lines
     lines.map((line) => {
-   
+
         gCtx.lineWidth = 1
         gCtx.strokeStyle = line.stroke
         gCtx.fillStyle = line.color
@@ -138,15 +175,15 @@ function createFocus() {
 
     if (!line) return
     if (!line.isClicked) return
-    
+
     const txtWidth = gCtx.measureText(line.txt).width
     line.txtWidth = txtWidth
 
     gCtx.beginPath()
     gCtx.rect(
-        line.posX - line.txtWidth / 2 -10,
+        line.posX - line.txtWidth / 2 - 10,
         line.posY - 20,
-        line.txtWidth +20,
+        line.txtWidth + 20,
         line.size + 20
     );
     gCtx.lineWidth = 2;

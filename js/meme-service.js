@@ -9,16 +9,46 @@ let gMeme = {
     lines: []
 }
 
+function moveLine(dx, dy) {
+    const line = getLine()
+    // console.log('dx:', dx)
+    // console.log('dy:', dy)
+    line.posX += dx
+    line.posY += dy
+  }
+  
 
-// function deleteLine(){
-//     gMeme.lines.splice(gMeme.selectedLineIdx , 1)
-// }
+function setLineDrag(isDrag) {
+    const line = getLine()
+    line.isDrag = isDrag
+    // console.log(line)
+  }
 
 
+
+function deleteLine(){
+    gMeme.lines.splice(gMeme.selectedLineIdx , 1)
+    if (gMeme.selectedLineIdx === 0) return
+    else gMeme.selectedLineIdx--
+    // console.log('after' , gMeme)
+}
 
 function fontChange(value){
     const line = getLine()
     line.font = value
+}
+
+function moveUpTxt(){
+    const line = getLine()
+    // console.log(line)
+    line.posY -= 5
+}
+
+function movedownTxt(){
+    const line = getLine()
+    // console.log(line)
+    line.posY += 5
+
 }
 
 
@@ -46,23 +76,23 @@ function getLine() {
 }
 
 function createLine() {
-    if (gMeme.lines.length > 2) return
     let positionX
     let positionY
 
     if (gMeme.lines.length === 0) {
         positionX = gElCanvas.width / 2
-        positionY = gElCanvas.height / 2
-    } else if (gMeme.lines.length === 1) {
-        positionX = gElCanvas.width / 2
         positionY = gElCanvas.height / 4
-        gMeme.selectedLineIdx++
-    } else if (gMeme.lines.length === 2) {
+    }  else if (gMeme.lines.length === 1) {
         positionX = gElCanvas.width / 2
         positionY = gElCanvas.height * 0.75
         gMeme.selectedLineIdx++
+    } else if (gMeme.lines.length >= 2 ) {
+        positionX = gElCanvas.width / 2
+        positionY = gElCanvas.height / 2
+        gMeme.selectedLineIdx++
     }
-
+        
+  
     const newLine = {
         txt: 'Write your text here',
         size: 20,
@@ -73,6 +103,7 @@ function createLine() {
         posX: positionX,
         posY: positionY,
         isClicked: true,
+        isDrag: false,
         txtWidth: 0
     }
 
@@ -81,11 +112,7 @@ function createLine() {
     // console.log(gMeme)
 }
 
-// function updateTxtWidth(){
-//     const line = getLine()
-//    line.txtWidth = gCtx.measureText(line.txt).width
-//    console.log(line.txtWidth)
-// }
+
 
 
 function decreaseTxt() {

@@ -61,6 +61,11 @@
                         <button class="alignment-right" onclick="onAlignBtn('right')">alignment-right</button>
                     </article>
 
+                    <article class="single-movement flex align-center justify-center">
+                        <button class="move-up" onclick="onMoveUp()">move up</button>
+                        <button class="move-down" onclick="onMoveDown()">move down</button>
+                    </article>
+
                     <article class="font-size flex align-center justify-center">
                         <button class="increase-text" onclick="onIncreaseTxt()"> increase</button>
                         <button class="decrease-text" onclick="onDecreaseTxt()"> decrease</button>
@@ -70,6 +75,15 @@
                         <button class="switch-line" onclick="onAddLine()"> add line</button>
                         <button class="switch-line" onclick="onDeleteLine()"> delete line</button>
                         <button class="switch-line" onclick="onSwitchLine()"> switch line</button>
+                    </article>
+
+                    <article class="sharing-options flex align-center justify-center">
+                        <button class="download-btn"> 
+                        <a href="#" class="btn" onclick="onDownloadMeme(this)" download="my-meme.jpg">Download as jpeg</a>
+                    </button>
+                    <button class="sharing-btn" onclick="onUploadImg()">
+                        Share on facebook
+                      </button>
                     </article>
 
                 </section>
@@ -119,16 +133,12 @@
 
 
 
-
-
-
-
-
     <script src="js/utils.js"></script>
     <script src="js/gallery-service.js"></script>
     <script src="js/meme-service.js"></script>
     <script src="js/gallery-controller.js"></script>
     <script src="js/meme-controller.js"></script>
+    <script src="js/sharing-on-facebook.js"></script>
 </body>
 
 </html>
