@@ -20,10 +20,44 @@
             <nav class="main-nav">
                 <button class="btn nav-btn" onclick="OnGalleryBtn()">Gallery</button>
                 <button class="btn nav-btn" onclick="OnEditorBtn()">Meme Editor</button>
-                <button class="btn nav-btn">Saved Memes</button>
+                <button class="btn nav-btn" onclick="onSavedMemePage()">Saved Memes</button>
                 <button class="btn nav-btn">About</button>
             </nav>
         </header>
+
+        <main class="main-gallery-page">
+
+            <section class="search-section flex align-center space-between">
+
+                <input list="keywords" id="search-box" name="search-box" placeholder="search">
+
+                <datalist class="keywords-options" id="keywords">
+                    <option value="Funny">
+                    <option value="Animal">
+                    <option value="Man">
+                    <option value="Women">
+                    <option value="Sorry">
+                    <option value="Baby">
+                </datalist>
+
+                <section class="keywords-storage flex align-center space-between"> <!-- מחסן מילים -->
+                    <article>Funny</article>
+                    <article>Animal</article>
+                    <article>Man</article>
+                    <article>Women</article>
+                    <article>Sorry</article>
+                    <article>Baby</article>
+                </section>
+
+            </section>
+
+
+            <section class="gallery-container">
+
+            </section>
+
+
+        </main>
 
         <div class="main-editor-page flex align-center ">
             <section class="canvas-container flex">
@@ -78,12 +112,13 @@
                     </article>
 
                     <article class="sharing-options flex align-center justify-center">
-                        <button class="download-btn"> 
-                        <a href="#" class="btn" onclick="onDownloadMeme(this)" download="my-meme.jpg">Download as jpeg</a>
-                    </button>
-                    <button class="sharing-btn" onclick="onUploadImg()">
-                        Share on facebook
-                      </button>
+                        <button class="download-btn">
+                            <a href="#" class="btn" onclick="onDownloadMeme(this)" download="my-meme.jpg">Download as
+                                jpeg</a></button>
+                        <button class="sharing-btn" onclick="onUploadImg()">
+                            Share on facebook
+                        </button>
+                        <button class="save-btn" onclick="onSaveBtn()">save</button>
                     </article>
 
                 </section>
@@ -93,40 +128,13 @@
             </section>
         </div>
 
-
-        <main class="main-gallery-page">
-
-            <section class="search-section flex align-center space-between">
-
-                <input list="keywords" id="search-box" name="search-box" placeholder="search">
-
-                <datalist class="keywords-options" id="keywords">
-                    <option value="Funny">
-                    <option value="Animal">
-                    <option value="Man">
-                    <option value="Women">
-                    <option value="Sorry">
-                    <option value="Baby">
-                </datalist>
-
-                <section class="keywords-storage flex align-center space-between"> <!-- מחסן מילים -->
-                    <article>Funny</article>
-                    <article>Animal</article>
-                    <article>Man</article>
-                    <article>Women</article>
-                    <article>Sorry</article>
-                    <article>Baby</article>
-                </section>
-
+        <div class="main-saved-page flex align-center">
+            <section class="saved-memes-container flex">
             </section>
+        </div>
 
 
-            <section class="gallery-container">
 
-            </section>
-
-
-        </main>
 
         <footer class="full"></footer>
     </div>

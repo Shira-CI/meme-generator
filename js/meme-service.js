@@ -1,5 +1,7 @@
 'use strict'
 
+const STORAGE_KEY = 'memeDB'
+
 let gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 let gCurrColor
 
@@ -15,36 +17,36 @@ function moveLine(dx, dy) {
     // console.log('dy:', dy)
     line.posX += dx
     line.posY += dy
-  }
-  
+}
+
 
 function setLineDrag(isDrag) {
     const line = getLine()
     line.isDrag = isDrag
     // console.log(line)
-  }
+}
 
 
 
-function deleteLine(){
-    gMeme.lines.splice(gMeme.selectedLineIdx , 1)
+function deleteLine() {
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1)
     if (gMeme.selectedLineIdx === 0) return
     else gMeme.selectedLineIdx--
     // console.log('after' , gMeme)
 }
 
-function fontChange(value){
+function fontChange(value) {
     const line = getLine()
     line.font = value
 }
 
-function moveUpTxt(){
+function moveUpTxt() {
     const line = getLine()
     // console.log(line)
     line.posY -= 5
 }
 
-function movedownTxt(){
+function movedownTxt() {
     const line = getLine()
     // console.log(line)
     line.posY += 5
@@ -55,7 +57,7 @@ function movedownTxt(){
 function alignText(value, canvasWidth) {
     if (value === 'left') gMeme.lines[gMeme.selectedLineIdx].posX = gMeme.lines[gMeme.selectedLineIdx].txtWidth / 2 + 12
     else if (value === 'right') gMeme.lines[gMeme.selectedLineIdx].posX = canvasWidth - gMeme.lines[gMeme.selectedLineIdx].txtWidth / 2 - 12
-    else gMeme.lines[gMeme.selectedLineIdx].posX = canvasWidth / 2 
+    else gMeme.lines[gMeme.selectedLineIdx].posX = canvasWidth / 2
 }
 
 
@@ -82,17 +84,17 @@ function createLine() {
     if (gMeme.lines.length === 0) {
         positionX = gElCanvas.width / 2
         positionY = gElCanvas.height / 4
-    }  else if (gMeme.lines.length === 1) {
+    } else if (gMeme.lines.length === 1) {
         positionX = gElCanvas.width / 2
         positionY = gElCanvas.height * 0.75
         gMeme.selectedLineIdx++
-    } else if (gMeme.lines.length >= 2 ) {
+    } else if (gMeme.lines.length >= 2) {
         positionX = gElCanvas.width / 2
         positionY = gElCanvas.height / 2
         gMeme.selectedLineIdx++
     }
-        
-  
+
+
     const newLine = {
         txt: 'Write your text here',
         size: 20,
@@ -111,7 +113,6 @@ function createLine() {
     // updateTxtWidth()
     // console.log(gMeme)
 }
-
 
 
 
@@ -146,14 +147,16 @@ function getMeme() {
 }
 
 
-
-function showMeme() {
-    const elGalleryContainer = document.querySelector('.main-gallery-page')
-    elGalleryContainer.style.display = 'none'
-
-    const elEditorContainer = document.querySelector('.main-editor-page')
-    elEditorContainer.style.display = 'flex'
+function saveMemeToStorage(savedMemes) {
+    saveToStorage(STORAGE_KEY, savedMemes)
 }
 
+
+function loadSavedMemes() {
+    let savedMemes = loadFromStorage(STORAGE_KEY)
+    //    console.log(savedMemes)
+    if (!savedMemes) savedMemes = []
+    return savedMemes
+}
 
 
