@@ -16,7 +16,7 @@
     <div class="main-layout">
 
         <header class="main-header full flex align-center space-between">
-            <section class="logo">logo</section>
+            <section class="logo">MEMEGEN</section>
             <nav class="main-nav">
                 <button class="btn nav-btn" onclick="OnGalleryBtn()">Gallery</button>
                 <button class="btn nav-btn" onclick="OnEditorBtn()">Meme Editor</button>
@@ -28,16 +28,23 @@
         <main class="main-gallery-page">
 
             <section class="search-section flex align-center space-between">
+                <input list="keywords" id="search-box" name="search-box" placeholder="search"
+                    onchange="onSetFilter(this.value)">
+                <button class="flexible-btn" onclick="onFlexibleBtn()">I'm flexible!</button>
 
-                <input list="keywords" id="search-box" name="search-box" placeholder="search">
+                <button class="upload-image-btn">Upload image
+                    <input type="file" class="upload-image-input" name="image" onchange="onImgInput(event)" />
+                </button>
+
 
                 <datalist class="keywords-options" id="keywords">
-                    <option value="Funny">
-                    <option value="Animal">
-                    <option value="Man">
-                    <option value="Women">
-                    <option value="Sorry">
-                    <option value="Baby">
+                    <option value="All">All</option>
+                    <option value="Funny">Funny</option>
+                    <option value="Animal">Animal</option>
+                    <option value="Human">Human</option>
+                    <option value="Love">Love</option>
+                    <option value="Cute">Cute</option>
+                    <option value="Famous">Famous</option>
                 </datalist>
 
                 <section class="keywords-storage flex align-center space-between"> <!-- מחסן מילים -->
@@ -61,7 +68,7 @@
 
         <div class="main-editor-page flex align-center ">
             <section class="canvas-container flex">
-                <canvas class="main-canvas" id="my-canvas" height="350" width="350" onclick="">
+                <canvas class="main-canvas" id="my-canvas" height="450" width="450" onclick="">
                 </canvas>
             </section>
 
@@ -73,42 +80,43 @@
                         placeholder="Enter your text">
                 </section>
 
-                <section class="text-tools ">
-
-                    <article class="color-picker-container flex align-center justify-center">
-                        <label for="color-picker"></label>
-                        <input class="color-picker" type="color" name="color-picker" id="color-picker"
-                            oninput="onColorPick(this.value)" />
-                    </article>
-
-                    <article class="font-family flex align-center justify-center">
-                        <select name="font-change" class="font-change" onchange="onFontChange(this.value)">
-                            <option value="Impact">Impact</option>
-                            <option value="Arial">Arial</option>
-                            <option value="serif">Times New Roman</option>
-                        </select>
-                    </article>
-
-                    <article class="alignments flex align-center justify-center">
-                        <button class="alignment-left" onclick="onAlignBtn('left')">alignment-left</button>
-                        <button class="alignment-center" onclick="onAlignBtn('center')">alignment-center</button>
-                        <button class="alignment-right" onclick="onAlignBtn('right')">alignment-right</button>
-                    </article>
-
-                    <article class="single-movement flex align-center justify-center">
-                        <button class="move-up" onclick="onMoveUp()">move up</button>
-                        <button class="move-down" onclick="onMoveDown()">move down</button>
-                    </article>
-
-                    <article class="font-size flex align-center justify-center">
-                        <button class="increase-text" onclick="onIncreaseTxt()"> increase</button>
-                        <button class="decrease-text" onclick="onDecreaseTxt()"> decrease</button>
-                    </article>
+                <section class="text-tools">
 
                     <article class="switch-line flex align-center justify-center">
-                        <button class="switch-line" onclick="onAddLine()"> add line</button>
-                        <button class="switch-line" onclick="onDeleteLine()"> delete line</button>
-                        <button class="switch-line" onclick="onSwitchLine()"> switch line</button>
+                        <button class="add-line-btn" onclick="onAddLine()"></button>
+                        <button class="delete-line-btn" onclick="onDeleteLine()"></button>
+                        <button class="switch-line-btn" onclick="onSwitchLine()"></button>
+                    </article>
+                    <section class="color-font-txt">
+                        <button class="color-picker-container flex align-center justify-center">
+                            <label for="color-picker"></label>
+                            <input class="color-picker-btn" type="color" name="color-picker" id="color-picker"
+                                oninput="onColorPick(this.value)" />
+                        </button>
+
+                        <article class="font-family flex align-center justify-center">
+                            <select name="font-change" class="font-change" onchange="onFontChange(this.value)">
+                                <option value="Impact">Impact</option>
+                                <option value="Arial">Arial</option>
+                                <option value="serif">Times New Roman</option>
+                            </select>
+                        </article>
+                    </section>
+                    <section>
+                        <article class="alignments flex align-center justify-center">
+                            <button class="alignment-left-btn" onclick="onAlignBtn('left')"></button>
+                            <button class="alignment-center-btn" onclick="onAlignBtn('center')"></button>
+                            <button class="alignment-right-btn" onclick="onAlignBtn('right')"></button>
+                        </article>
+
+                        <article class="font-size flex align-center justify-center">
+                            <button class="increase-text-btn" onclick="onIncreaseTxt()"></button>
+                            <button class="decrease-text-btn" onclick="onDecreaseTxt()"></button>
+                        </article>
+                    </section>
+                    <article class="single-movement flex align-center justify-center">
+                        <button class="move-up-btn" onclick="onMoveUp()"></button>
+                        <button class="move-down-btn" onclick="onMoveDown()"></button>
                     </article>
 
                     <article class="sharing-options flex align-center justify-center">
@@ -147,6 +155,7 @@
     <script src="js/gallery-controller.js"></script>
     <script src="js/meme-controller.js"></script>
     <script src="js/sharing-on-facebook.js"></script>
+    <script src="js/upload-from-local.js"></script>
 </body>
 
 </html>

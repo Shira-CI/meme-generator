@@ -1,11 +1,21 @@
 'use strict'
 
-
-function OnGalleryBtn(){
-showGallery()
+function onFlexibleBtn() {
+    gMeme = createRandomMeme(gElCanvas)
+    renderMeme()
+    showMeme()
 }
 
-function showGallery(){
+function onSetFilter(keyWord) {
+    filterUpdate(keyWord)
+    renderGallery()
+}
+
+function OnGalleryBtn() {
+    showGallery()
+}
+
+function showGallery() {
     const elGalleryContainer = document.querySelector('.main-gallery-page')
     elGalleryContainer.style.display = 'grid'
 
@@ -17,24 +27,20 @@ function showGallery(){
 }
 
 function renderGallery() {
-    const elGalleryContainer = document.querySelector('.main-gallery-page')
-    // console.log(elGalleryContainer)
+    const elGalleryContainer = document.querySelector('.gallery-container')
     const imgs = getImgs()
-    // console.log(imgs)
+
     let strHTML = ''
     imgs.map((img) => {
-      strHTML += `
+        strHTML += `
   <div class="card">
     <img src="${img.url}" alt="meme" class="grid-btn" onclick="onImgSelect(${img.id})">
-    </div>
-    `
-    // console.log(strHTML)
+    </div>`
     })
-
     elGalleryContainer.innerHTML = strHTML
 }
 
-function onImgSelect(id){
+function onImgSelect(id) {
     setImg(id)
     renderMeme()
     showMeme()

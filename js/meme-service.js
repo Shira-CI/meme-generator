@@ -2,6 +2,24 @@
 
 const STORAGE_KEY = 'memeDB'
 
+const randomSentences = [
+    "I can't even can.",
+    "I lost my mind.",
+    "Do not want!",
+    "Silent but deadly.",
+    "Why so serious?",
+    "Just keep swimming.",
+    "I hate mosquitos hum.",
+    "Forever nap time.",
+    "Free hugs: apply within.",
+    "Hello, is it tea?",
+    "Dobby has no master.",
+    "I'm always grumpy.",
+    "I'm kind of awesome.",
+    "I'm not arguing.",
+    "Monday? Not ready."
+  ]
+
 let gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 let gCurrColor
 
@@ -11,6 +29,30 @@ let gMeme = {
     lines: []
 }
 
+
+function createRandomMeme() {
+    let randMeme = {
+        selectedImgId: getRandomInt(0 , 18),
+        selectedLineIdx: 0,
+        lines: [{
+            txt: randomSentences[getRandomInt(0,15)],
+            size:  getRandomInt(20 , 40),
+            align: 'center',
+            color: getRandomColor(),
+            font: 'Impact',
+            stroke: getRandomColor(),
+            posX: gElCanvas.width / 2,
+            posY: gElCanvas.height / 2,
+            isClicked: true,
+            isDrag: false,
+            txtWidth: 0
+        }]
+    }
+    return randMeme
+}
+
+
+
 function moveLine(dx, dy) {
     const line = getLine()
     // console.log('dx:', dx)
@@ -19,14 +61,11 @@ function moveLine(dx, dy) {
     line.posY += dy
 }
 
-
 function setLineDrag(isDrag) {
     const line = getLine()
     line.isDrag = isDrag
     // console.log(line)
 }
-
-
 
 function deleteLine() {
     gMeme.lines.splice(gMeme.selectedLineIdx, 1)
@@ -110,9 +149,7 @@ function createLine() {
     }
 
     gMeme.lines.push(newLine)
-    // updateTxtWidth()
-    // console.log(gMeme)
-}
+    }
 
 
 
