@@ -3,7 +3,6 @@ function onImgInput(ev) {
 
     loadImageFromInput(ev, renderImg)
 }
-
 // CallBack func will run on success load of the img
 function loadImageFromInput(ev, onImageReady) {
     const reader = new FileReader()
@@ -16,7 +15,7 @@ function loadImageFromInput(ev, onImageReady) {
         // Can also do it this way:
         // img.onload = () => onImageReady(img)
         setImg(100, img.src)
-       showMeme()
+        showMeme()
         renderMeme()
     }
     reader.readAsDataURL(ev.target.files[0]) // Read the file we picked
@@ -27,31 +26,14 @@ function renderImg(img) {
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
 }
 
-
-// function onUploadImg(ev) {
-//     var reader = new FileReader();
-  
-//     reader.onload = (event) => {
-//       var img = new Image();
-//       img.src = event.target.result;
-//       setImg(100, img.src);
-//       _moveToEditorPage();
-//       renderCanvas();
-//     };
-  
-//     reader.readAsDataURL(ev.target.files[0]);
-//   }
-  
-
 function setImg(id, src) {
     if (id === 100) {
-      id = makeId();
-      gImgs.push({ id, url: src, keywords: ['upload'] });
+        id = makeId();
+        gImgs.push({ id, url: src, keywords: ['upload'] });
     }
     gMeme.selectedImgId = id;
-  }
-  
+}
 
 
 
-  
+

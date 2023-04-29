@@ -4,6 +4,7 @@ let gCtx = ''
 let gElCanvas = ''
 let gStartPos
 let gSavedMemes = []
+const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 
 function onInit() {
@@ -14,13 +15,8 @@ function onInit() {
     renderGallery()
     addListeners()
     showGallery()
-
     gSavedMemes = loadSavedMemes()
 }
-
-
-
-
 
 function onDownloadMeme(elLink) {
     const imgContent = gElCanvas.toDataURL('image/jpeg') // image/jpeg the default format
@@ -53,15 +49,6 @@ function onAlignBtn(value) {
     renderMeme()
 }
 
-function addListeners() {
-    addMouseListeners()
-    // addTouchListeners()
-    // Listen for resize ev
-    // window.addEventListener('resize', () => {
-    //   onInit()
-    // })
-}
-
 function checkPos(pos) {
     const meme = getMeme()
     const lines = getLines()
@@ -91,10 +78,21 @@ function checkPos(pos) {
     }
 }
 
+function addListeners() {
+    addMouseListeners()
+    addTouchListeners()
+}
+
 function addMouseListeners() {
     gElCanvas.addEventListener('mousedown', onDown)
     gElCanvas.addEventListener('mousemove', onMove)
     gElCanvas.addEventListener('mouseup', onUp)
+}
+
+function addTouchListeners() {
+    gElCanvas.addEventListener('touchstart', onDown)
+    gElCanvas.addEventListener('touchmove', onMove)
+    gElCanvas.addEventListener('touchend', onUp)
 }
 
 function onDown(ev) {
@@ -127,33 +125,26 @@ function onUp() {
 }
 
 function getEvPos(ev) {
-    // Gets the offset pos , the default pos
     let pos = {
         x: ev.offsetX,
         y: ev.offsetY,
     }
 
-    // console.log('pos:', pos)
-    // Check if its a touch ev
-    // if (TOUCH_EVS.includes(ev.type)) {
-    //   //soo we will not trigger the mouse ev
-    //   ev.preventDefault()
-    //   //Gets the first touch point
-    //   ev = ev.changedTouches[0]
-    //   //Calc the right pos according to the touch screen
-    //   // console.log('ev.pageX:', ev.pageX)
-    //   // console.log('ev.pageY:', ev.pageY)
-    //   pos = {
-    //     x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
-    //     y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
-    //   }
-    //   // console.log('pos:', pos)
-    // }
+    if (TOUCH_EVS.includes(ev.type)) {
+        ev.preventDefault()
+        ev = ev.changedTouches[0]
+
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
+        }
+    }
     return pos
 }
 
 function drawText() {
-    let lines = gMeme.lines
+    const meme = getMeme()
+    const lines = meme.lines
     lines.map((line) => {
 
         gCtx.lineWidth = 1
@@ -181,7 +172,7 @@ function createFocus() {
     gCtx.beginPath()
     gCtx.rect(
         line.posX - line.txtWidth / 2 - 10,
-        line.posY - 20,
+        line.posY - 25,
         line.txtWidth + 20,
         line.size + 20
     );
@@ -195,7 +186,6 @@ function onAddLine() {
     createLine()
     resetTextBox()
     renderMeme()
-    //להוסיף תנאי כשמגיעים ל3 שורות יופיע מודל שאומר הגעת למקסימום
 }
 
 function renderMeme() {
@@ -235,13 +225,11 @@ function onSwitchLine() {
 function onDecreaseTxt() {
     decreaseTxt()
     renderMeme()
-
 }
 
 function onIncreaseTxt() {
     increaseTxt()
     renderMeme()
-
 }
 
 function onColorPick(color) {
@@ -278,10 +266,10 @@ function showSavedMemesPage() {
     elSavedContainer.style.display = 'flex'
 }
 
-function onSaveBtn() {                      // להוסיף מודל שמודיע שנשמר
+function onSaveBtn() {                   
     const memeUrl = gElCanvas.toDataURL()
     const id = makeId()
-    const savedGMeme = Object.assign({} , getMeme())
+    const savedGMeme = Object.assign({}, getMeme())
     // console.log('savedGMeme' , savedGMeme)
     gSavedMemes.push({ id, memeUrl, savedGMeme })
     // console.log('gSavedMemes' , gSavedMemes)
@@ -308,14 +296,14 @@ function renderSavedMemes() {
     gSavedMemes.map(meme => {
         // console.log(meme.id)
         // console.log(meme.memeUrl)
-
         strHTML += `<article class="saved-meme" data-id="${meme.id}" onclick="">
     <img src="${meme.memeUrl}">
     <button class="edit-meme" onclick="onEditMeme('${meme.id}')">Edit</button>
     </article>
     `
-    document.querySelector('.saved-memes-container').innerHTML = strHTML
-})}
+        document.querySelector('.saved-memes-container').innerHTML = strHTML
+    })
+}
 
 /* <button class="delete-meme" onclick="onDeleteSavedMeme('${meme.id}')">Delete</button>
 <button class="download-meme" onclick="onDownloadSavedMeme('${meme.id}')">Download</button> */

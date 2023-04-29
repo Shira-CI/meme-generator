@@ -8,7 +8,6 @@
         width: 120px;
         height: 50px;
         margin: 5px;
-        /* padding: 5px 12px; */
         border-radius: 2em;
         border: #bbfdf9 2px solid;
         background-color: #d0e7f2;
@@ -41,7 +40,6 @@
 
     .card {
         border-radius: 2em;
-        /* border: 2px solid rgb(131, 187, 199); */
         background-color: #4b8b95;
         width: 350px;
         height: 350px;
@@ -54,13 +52,11 @@
         transition: 300ms;
     }
 
-
     header {
         background-color: rgb(230, 241, 245);
         background: linear-gradient(#c2a8be, #d7d9f5);
         padding: 10px;
     }
-
 
     .editor-tools,
     .canvas-container {
@@ -84,7 +80,8 @@
         top: 0;
         right: 0;
         height: 100vh;
-        background-color: rgba(255, 255, 255, 0.9);
+        background-color: rgb(230, 241, 245);
+        background: linear-gradient(#c9b8c7, #d7d9f5);
         border-inline-start: 1px solid #ccc;
         min-width: 200px;
         transform: translateX(100%);
@@ -112,8 +109,8 @@
     }
 
     .main-nav-container button:hover {
-        background-color: #e5e5e5;
-    }
+        background-color: rgb(230, 241, 245);
+        background: linear-gradient(#f4e7f2, #d7d9f5);    }
 
     .main-screen {
         position: fixed;
@@ -132,7 +129,6 @@
         pointer-events: auto;
         opacity: 1;
     }
-
 }
 
 /* SMALL 640-900 */
@@ -161,7 +157,6 @@
 
     .card {
         border-radius: 2em;
-        /* border: 2px solid rgb(131, 187, 199); */
         background-color: #4b8b95;
         width: 200px;
         height: 200px;
@@ -253,27 +248,21 @@
         width: 70px;
         height: 50px;
         margin: 5px;
-        /* padding: 5px 12px; */
         border-radius: 2em;
         border: #bbfdf9 2px solid;
         background-color: #d0e7f2;
     }
 }
 
-
-
-
 /* MEDIUM 900-1160 */
 
 @media (min-width: 900px) {
     .card {
         border-radius: 2em;
-        /* border: 2px solid rgb(131, 187, 199); */
         background-color: #4b8b95;
         width: 250px;
         height: 250px;
     }
-
 
     .gallery-container {
         grid-template-columns: repeat(4, 1fr);
@@ -290,7 +279,6 @@
         width: 150px;
         height: 50px;
         margin: 5px;
-        /* padding: 5px 12px; */
         border-radius: 2em;
         border: #bbfdf9 2px solid;
         background-color: #d0e7f2;
@@ -306,9 +294,7 @@
         background-color: rgb(230, 241, 245);
         background: linear-gradient(#c2a8be, #d7d9f5);
         padding: 10px;
-        /* height: 150px; */
     }
-
 
     .editor-tools,
     .canvas-container {
@@ -321,7 +307,6 @@
         align-self: center;
     }
 }
-
 
 /* LARGE 1160+ */
 @media (min-width: 1160px) {
@@ -350,5 +335,4 @@
         width: 300px;
         font-size: 25px;
     }
-
 }

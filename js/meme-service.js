@@ -1,7 +1,6 @@
 'use strict'
 
 const STORAGE_KEY = 'memeDB'
-
 const randomSentences = [
     "I can't even can.",
     "I lost my mind.",
@@ -18,9 +17,7 @@ const randomSentences = [
     "I'm kind of awesome.",
     "I'm not arguing.",
     "Monday? Not ready."
-  ]
-
-let gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
+]
 let gCurrColor
 
 let gMeme = {
@@ -29,14 +26,13 @@ let gMeme = {
     lines: []
 }
 
-
 function createRandomMeme() {
     let randMeme = {
-        selectedImgId: getRandomInt(0 , 18),
+        selectedImgId: getRandomInt(0, 18),
         selectedLineIdx: 0,
         lines: [{
-            txt: randomSentences[getRandomInt(0,15)],
-            size:  getRandomInt(20 , 40),
+            txt: randomSentences[getRandomInt(0, 15)],
+            size: getRandomInt(20, 40),
             align: 'center',
             color: getRandomColor(),
             font: 'Impact',
@@ -50,8 +46,6 @@ function createRandomMeme() {
     }
     return randMeme
 }
-
-
 
 function moveLine(dx, dy) {
     const line = getLine()
@@ -89,17 +83,13 @@ function movedownTxt() {
     const line = getLine()
     // console.log(line)
     line.posY += 5
-
 }
-
 
 function alignText(value, canvasWidth) {
     if (value === 'left') gMeme.lines[gMeme.selectedLineIdx].posX = gMeme.lines[gMeme.selectedLineIdx].txtWidth / 2 + 12
     else if (value === 'right') gMeme.lines[gMeme.selectedLineIdx].posX = canvasWidth - gMeme.lines[gMeme.selectedLineIdx].txtWidth / 2 - 12
     else gMeme.lines[gMeme.selectedLineIdx].posX = canvasWidth / 2
 }
-
-
 
 function switchLine() {
     if (gMeme.lines.length === 0) return
@@ -133,10 +123,9 @@ function createLine() {
         gMeme.selectedLineIdx++
     }
 
-
     const newLine = {
         txt: 'Write your text here',
-        size: 20,
+        size: 30,
         align: 'center',
         color: 'white',
         font: 'Impact',
@@ -147,28 +136,21 @@ function createLine() {
         isDrag: false,
         txtWidth: 0
     }
-
     gMeme.lines.push(newLine)
-    }
-
-
+}
 
 function decreaseTxt() {
     gMeme.lines[gMeme.selectedLineIdx].size -= 5
 }
 
-
-
 function increaseTxt() {
     gMeme.lines[gMeme.selectedLineIdx].size += 5
 }
-
 
 function setColor(color) {
     gMeme.lines[gMeme.selectedLineIdx].color = color
     // console.log(gMeme)
 }
-
 
 function setImg(id) {
     gMeme.selectedImgId = id
@@ -183,11 +165,9 @@ function getMeme() {
     return gMeme
 }
 
-
 function saveMemeToStorage(savedMemes) {
     saveToStorage(STORAGE_KEY, savedMemes)
 }
-
 
 function loadSavedMemes() {
     let savedMemes = loadFromStorage(STORAGE_KEY)
@@ -195,5 +175,3 @@ function loadSavedMemes() {
     if (!savedMemes) savedMemes = []
     return savedMemes
 }
-
-

@@ -23,7 +23,6 @@
                 <button class="btn nav-btn">About</button>
             </nav>
             <button class="btn-menu" onclick="toggleMenu()">☰</button>
-
         </header>
 
         <main class="main-gallery-page">
@@ -36,7 +35,6 @@
                 <button class="upload-image-btn">Upload image
                     <input type="file" class="upload-image-input" name="image" onchange="onImgInput(event)" />
                 </button>
-
 
                 <datalist class="keywords-options" id="keywords">
                     <option value="All">All</option>
@@ -56,18 +54,14 @@
                     <article>Sorry</article>
                     <article>Baby</article>
                 </section> -->
-
             </section>
 
-
-            <section class="gallery-container">
-
-            </section>
-
+            <section class="gallery-container"></section>
 
         </main>
 
         <div class="main-editor-page flex align-center ">
+
             <section class="canvas-container flex">
                 <canvas class="main-canvas" id="my-canvas" height="450" width="450" onclick="">
                 </canvas>
@@ -82,7 +76,6 @@
                 </section>
 
                 <section class="text-tools">
-
                     <article class="switch-line">
                         <button class="add-line-btn" onclick="onAddLine()"></button>
                         <button class="delete-line-btn" onclick="onDeleteLine()"></button>
@@ -105,16 +98,16 @@
                         </article>
                     </section>
 
-                        <article class="alignments">
-                            <button class="alignment-left-btn" onclick="onAlignBtn('left')"></button>
-                            <button class="alignment-center-btn" onclick="onAlignBtn('center')"></button>
-                            <button class="alignment-right-btn" onclick="onAlignBtn('right')"></button>
-                        </article>
+                    <article class="alignments">
+                        <button class="alignment-left-btn" onclick="onAlignBtn('left')"></button>
+                        <button class="alignment-center-btn" onclick="onAlignBtn('center')"></button>
+                        <button class="alignment-right-btn" onclick="onAlignBtn('right')"></button>
+                    </article>
 
-                        <article class="font-size">
-                            <button class="increase-text-btn" onclick="onIncreaseTxt()"></button>
-                            <button class="decrease-text-btn" onclick="onDecreaseTxt()"></button>
-                        
+                    <article class="font-size">
+                        <button class="increase-text-btn" onclick="onIncreaseTxt()"></button>
+                        <button class="decrease-text-btn" onclick="onDecreaseTxt()"></button>
+
                         <button class="move-up-btn" onclick="onMoveUp()"></button>
                         <button class="move-down-btn" onclick="onMoveDown()"></button>
                     </article>
@@ -126,7 +119,7 @@
                     <button class="download-btn">
                         <a href="#" class="download-btn-input" onclick="onDownloadMeme(this)" download="my-meme.jpg">
                         </a> Download</button>
-                        
+
                     <button class="sharing-btn" onclick="onUploadImg()">
                         Share on facebook
                     </button>
@@ -134,23 +127,17 @@
                 </article>
 
             </section>
+
         </div>
 
         <div class="main-saved-page flex align-center">
-            <section class="saved-memes-container flex">
-            </section>
+            <section class="saved-memes-container flex"></section>
         </div>
 
-
-
-
         <footer class="full">
-            <section class="logo">MEMEGEN</section>
-
         </footer>
+
     </div>
-
-
 
     <script src="js/utils.js"></script>
     <script src="js/gallery-service.js"></script>

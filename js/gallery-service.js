@@ -6,13 +6,10 @@ let gFilterBy = 'All'
 const gKeywords = ['happy', 'angry', 'cute', 'animal', 'famous', 'human', 'funny', 'love']
 
 
-
 function filterUpdate(keyWord) {
     gFilterBy = keyWord
     // console.log(gFilterBy)
 }
-
-
 
 function getImgs() {
     if (gFilterBy === 'All') return gImgs
@@ -42,7 +39,6 @@ function createImgs() {
         createImg(17, 'img/18.jpg', ['angry', 'cute', 'love']),
     ]
 }
-
 
 function createImg(id, url, keywords) {
     return {
