@@ -197,7 +197,7 @@ header button {
 }
 
 .alignment-center-btn {
-    background-image: url(/icons/icon-center.png);
+    background-image: url(icons/icon-center.png);
     background-size: 40px 40px;
     background-repeat: no-repeat;
     background-position: center;
@@ -208,7 +208,7 @@ header button {
 }
 
 .alignment-right-btn {
-    background-image: url(/icons/icon-center.png);
+    background-image: url(icons/icon-center.png);
     background-size: 40px 40px;
     background-repeat: no-repeat;
     background-position: center;
@@ -219,7 +219,7 @@ header button {
 }
 
 .move-up-btn {
-    background-image: url(/icons/thin-arrow-top-icon.png);
+    background-image: url(icons/thin-arrow-top-icon.png);
     background-size: 40px 40px;
     background-repeat: no-repeat;
     background-position: center;
@@ -230,7 +230,7 @@ header button {
 }
 
 .move-down-btn {
-    background-image: url(/icons/thin-arrow-bottom-icon.png);
+    background-image: url(icons/thin-arrow-bottom-icon.png);
     background-size: 40px 40px;
     background-repeat: no-repeat;
     background-position: center;
@@ -241,7 +241,7 @@ header button {
 }
 
 .increase-text-btn {
-    background-image: url(/icons/font-size-increase-icon.png);
+    background-image: url(icons/font-size-increase-icon.png);
     background-size: 40px 40px;
     background-repeat: no-repeat;
     background-position: center;
@@ -252,7 +252,7 @@ header button {
 }
 
 .decrease-text-btn {
-    background-image: url(/icons/font-size-decrease-icon.png);
+    background-image: url(icons/font-size-decrease-icon.png);
     background-size: 40px 40px;
     background-repeat: no-repeat;
     background-position: center;
@@ -263,7 +263,7 @@ header button {
 }
 
 .add-line-btn {
-    background-image: url(/icons/plus-icon.png);
+    background-image: url(icons/plus-icon.png);
     background-size: 40px 40px;
     background-repeat: no-repeat;
     background-position: center;
@@ -274,7 +274,7 @@ header button {
 }
 
 .switch-line-btn {
-    background-image: url(/icons/up-down-arrows-icon.png);
+    background-image: url(icons/up-down-arrows-icon.png);
     background-size: 40px 40px;
     background-repeat: no-repeat;
     background-position: center;
@@ -286,7 +286,7 @@ header button {
 
 .color-picker-container {
     display: inline-block;
-    background-image: url(/icons/icon-color.png);
+    background-image: url(icons/icon-color.png);
     background-size: 40px 40px;
     background-repeat: no-repeat;
     background-position: center;
