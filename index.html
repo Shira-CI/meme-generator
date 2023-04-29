@@ -12,21 +12,24 @@
 <body onload="onInit()">
 
     <div class="main-layout">
+        <div class="main-screen" onclick="toggleMenu()"></div>
 
         <header class="main-header full flex align-center space-between">
             <section class="logo">MEMEGEN</section>
-            <nav class="main-nav">
+            <nav class="main-nav-container">
                 <button class="btn nav-btn" onclick="OnGalleryBtn()">Gallery</button>
                 <button class="btn nav-btn" onclick="OnEditorBtn()">Meme Editor</button>
                 <button class="btn nav-btn" onclick="onSavedMemePage()">Saved Memes</button>
                 <button class="btn nav-btn">About</button>
             </nav>
+            <button class="btn-menu" onclick="toggleMenu()">☰</button>
+
         </header>
 
         <main class="main-gallery-page">
 
             <section class="search-section flex align-center space-between">
-                <input list="keywords" id="search-box" name="search-box" placeholder="search"
+                <input list="keywords" class="search-box" id="search-box" name="search-box" placeholder="search"
                     onchange="onSetFilter(this.value)">
                 <button class="flexible-btn" onclick="onFlexibleBtn()">I'm flexible!</button>
 
@@ -45,14 +48,14 @@
                     <option value="Famous">Famous</option>
                 </datalist>
 
-                <section class="keywords-storage flex align-center space-between"> <!-- מחסן מילים -->
+                <!-- <section class="keywords-storage flex align-center space-between"> 
                     <article>Funny</article>
                     <article>Animal</article>
                     <article>Man</article>
                     <article>Women</article>
                     <article>Sorry</article>
                     <article>Baby</article>
-                </section>
+                </section> -->
 
             </section>
 
@@ -80,11 +83,12 @@
 
                 <section class="text-tools">
 
-                    <article class="switch-line flex align-center justify-center">
+                    <article class="switch-line">
                         <button class="add-line-btn" onclick="onAddLine()"></button>
                         <button class="delete-line-btn" onclick="onDeleteLine()"></button>
                         <button class="switch-line-btn" onclick="onSwitchLine()"></button>
                     </article>
+
                     <section class="color-font-txt">
                         <button class="color-picker-container flex align-center justify-center">
                             <label for="color-picker"></label>
@@ -92,7 +96,7 @@
                                 oninput="onColorPick(this.value)" />
                         </button>
 
-                        <article class="font-family flex align-center justify-center">
+                        <article class="font-family">
                             <select name="font-change" class="font-change" onchange="onFontChange(this.value)">
                                 <option value="Impact">Impact</option>
                                 <option value="Arial">Arial</option>
@@ -100,37 +104,35 @@
                             </select>
                         </article>
                     </section>
-                    <section>
-                        <article class="alignments flex align-center justify-center">
+
+                        <article class="alignments">
                             <button class="alignment-left-btn" onclick="onAlignBtn('left')"></button>
                             <button class="alignment-center-btn" onclick="onAlignBtn('center')"></button>
                             <button class="alignment-right-btn" onclick="onAlignBtn('right')"></button>
                         </article>
 
-                        <article class="font-size flex align-center justify-center">
+                        <article class="font-size">
                             <button class="increase-text-btn" onclick="onIncreaseTxt()"></button>
                             <button class="decrease-text-btn" onclick="onDecreaseTxt()"></button>
-                        </article>
-                    </section>
-                    <article class="single-movement flex align-center justify-center">
+                        
                         <button class="move-up-btn" onclick="onMoveUp()"></button>
                         <button class="move-down-btn" onclick="onMoveDown()"></button>
                     </article>
 
-                    <article class="sharing-options flex align-center justify-center">
-                        <button class="download-btn">
-                            <a href="#" class="btn" onclick="onDownloadMeme(this)" download="my-meme.jpg">Download as
-                                jpeg</a></button>
-                        <button class="sharing-btn" onclick="onUploadImg()">
-                            Share on facebook
-                        </button>
-                        <button class="save-btn" onclick="onSaveBtn()">save</button>
-                    </article>
 
                 </section>
 
-                <section class="gif-tools"></section>
-                <section class="share-options"></section>
+                <article class="sharing-options flex align-center justify-center">
+                    <button class="download-btn">
+                        <a href="#" class="download-btn-input" onclick="onDownloadMeme(this)" download="my-meme.jpg">
+                        </a> Download</button>
+                        
+                    <button class="sharing-btn" onclick="onUploadImg()">
+                        Share on facebook
+                    </button>
+                    <button class="save-btn" onclick="onSaveBtn()">save</button>
+                </article>
+
             </section>
         </div>
 
@@ -142,7 +144,10 @@
 
 
 
-        <footer class="full"></footer>
+        <footer class="full">
+            <section class="logo">MEMEGEN</section>
+
+        </footer>
     </div>
 
 

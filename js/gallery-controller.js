@@ -1,5 +1,10 @@
 'use strict'
 
+
+function toggleMenu() {
+    document.body.classList.toggle('menu-open');
+}
+
 function onFlexibleBtn() {
     gMeme = createRandomMeme(gElCanvas)
     renderMeme()

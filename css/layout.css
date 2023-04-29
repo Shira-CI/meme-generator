@@ -1,26 +1,9 @@
-.main-layout {
+/* .main-layout {
     height: 100vh;
     display: grid;
     grid-template-columns:
         minmax(20px, 1fr) minmax(auto, 1060px) minmax(20px, 1fr);
     grid-template-rows: 80px 1fr 80px;
     gap: 10px;
-}
+} */
 
-.main-layout>*:not(.full) {
-    grid-column: 2;
-    grid-row: 2;
-}
-
-.main-layout>.full {
-    grid-column: 1 / -1;
-}
-
-header {
-    grid-row: 1;
-}
-
-footer {
-    grid-row: 3;
-
-}

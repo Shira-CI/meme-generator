@@ -311,12 +311,11 @@ function renderSavedMemes() {
 
         strHTML += `<article class="saved-meme" data-id="${meme.id}" onclick="">
     <img src="${meme.memeUrl}">
-    <button class="delete-meme" onclick="onDeleteSavedMeme('${meme.id}')">Delete</button>
-    <button class="download-meme" onclick="onDownloadSavedMeme('${meme.id}')">Download</button>
     <button class="edit-meme" onclick="onEditMeme('${meme.id}')">Edit</button>
     </article>
     `
-        document.querySelector('.saved-memes-container').innerHTML = strHTML
-    })
+    document.querySelector('.saved-memes-container').innerHTML = strHTML
+})}
 
-}
+/* <button class="delete-meme" onclick="onDeleteSavedMeme('${meme.id}')">Delete</button>
+<button class="download-meme" onclick="onDownloadSavedMeme('${meme.id}')">Download</button> */
