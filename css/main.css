@@ -24,13 +24,16 @@ footer {
     height: 50vh;
     width: 40vw;
     background-color: rgba(194, 161, 201, 0.863);
-    translate: 0 -200%;
+    translate: 0 -500%;
     transition: 0.5s;
     align-items: center;
     justify-content: space-between;
-    margin: auto;
     padding-top: 10px;
     z-index: 1;
+    position: absolute;
+    margin-left: 30%;
+    margin-block-start: 15%;
+
 }
 
 .about-modal header {
