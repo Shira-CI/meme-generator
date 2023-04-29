@@ -16,6 +16,50 @@ footer {
     background: linear-gradient(#d7d9f5, #c2a8be);
 }
 
+/* ABOUT */
+
+.about-modal {
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    width: 40vw;
+    background-color: rgba(194, 161, 201, 0.863);
+    translate: 0 -200%;
+    transition: 0.5s;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    padding-top: 10px;
+    z-index: 1;
+}
+
+.about-modal header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.about-modal p{
+    padding: 15px;
+    font-size: 25px;
+}
+
+h1{
+    font-size: 30px;
+}
+
+.show-modal {
+    translate: 0;
+}
+
+.about-btn-modal {
+    width: 100px;
+    height: 3.125rem;
+    margin: 10px;
+    border-radius: 2em;
+    border: #bbfdf9 2px solid;
+    background-color: #d0e7f2;
+}
 
 /* HEADER */
 .logo {
@@ -43,7 +87,7 @@ footer {
     padding: 5px;
 }
 
-.color-font-txt{
+.color-font-txt {
     justify-content: space-evenly;
     justify-items: center;
     align-items: center;

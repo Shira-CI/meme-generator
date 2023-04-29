@@ -1,5 +1,15 @@
 'use strict'
 
+function onCloseModal(){
+    const elAboutModal = document.querySelector('.about-modal')
+    elAboutModal.classList.remove('show-modal')
+}
+
+function onAboutBtn(){
+    const elAboutModal = document.querySelector('.about-modal')
+    elAboutModal.classList.add('show-modal')
+}
+
 function toggleMenu() {
     document.body.classList.toggle('menu-open');
 }
