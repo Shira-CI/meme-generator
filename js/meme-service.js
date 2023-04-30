@@ -18,8 +18,8 @@ const randomSentences = [
     "I'm not arguing.",
     "Monday? Not ready."
 ]
-let gCurrColor
 
+let gCurrColor
 let gMeme = {
     selectedImgId: 0,
     selectedLineIdx: 0,

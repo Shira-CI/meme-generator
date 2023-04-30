@@ -1,5 +1,4 @@
 'use strict'
-
 let gCtx = ''
 let gElCanvas = ''
 let gStartPos
@@ -10,10 +9,11 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 function onInit() {
     gElCanvas = document.querySelector('#my-canvas')
     gCtx = gElCanvas.getContext('2d')
+    // resizeCanvas()
+    addListeners()
     createLine()
     renderMeme()
     renderGallery()
-    addListeners()
     showGallery()
     gSavedMemes = loadSavedMemes()
 }
@@ -78,9 +78,18 @@ function checkPos(pos) {
     }
 }
 
+function resizeCanvas() {
+    const elCanvasContainer = document.querySelector('.canvas-container');
+    gElCanvas.width = elCanvasContainer.offsetWidth;
+    gElCanvas.height = elCanvasContainer.offsetHeight
+}
+
 function addListeners() {
     addMouseListeners()
     addTouchListeners()
+    window.addEventListener('resize', () => {
+        renderMeme()
+    })
 }
 
 function addMouseListeners() {
@@ -192,6 +201,7 @@ function renderMeme() {
     const elImg = new Image()
     elImg.src = gImgs[gMeme.selectedImgId].url
     elImg.onload = () => {
+        resizeCanvas()
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
         drawText()
         createFocus()
@@ -266,7 +276,7 @@ function showSavedMemesPage() {
     elSavedContainer.style.display = 'flex'
 }
 
-function onSaveBtn() {                   
+function onSaveBtn() {
     const memeUrl = gElCanvas.toDataURL()
     const id = makeId()
     const savedGMeme = Object.assign({}, getMeme())
