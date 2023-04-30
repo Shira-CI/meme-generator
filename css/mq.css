@@ -13,8 +13,18 @@
         background-color: #d0e7f2;
     }
 
+    .saved-meme-container,
     .main-editor-page {
+        display: flex;
         flex-direction: column;
+    }
+
+    .saved-meme{
+        width: 70%;
+
+    }
+    .saved-meme img{
+        width: 100%;
     }
 
     .saved-memes-container,
@@ -278,13 +288,13 @@
 
 @media (min-width: 900px) {
     .text-tools>* button {
-   
+
         width: 4vh;
-        height: 4vh ;
-   
+        height: 4vh;
+
     }
-    
-    
+
+
     .card {
         border-radius: 2em;
         background-color: #4b8b95;
@@ -293,7 +303,8 @@
     .gallery-container {
         grid-template-columns: repeat(4, 1fr);
     }
-/* 
+
+    /* 
     .upload-image-btn {
         padding-top: 12px;
     }
