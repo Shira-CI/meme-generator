@@ -284,6 +284,8 @@ function onSaveBtn() {
     gSavedMemes.push({ id, memeUrl, savedGMeme })
     // console.log('gSavedMemes' , gSavedMemes)
     saveMemeToStorage(gSavedMemes)
+    renderSavedMemes()
+    showSavedMemesPage()
 }
 
 function onSavedMemePage() {

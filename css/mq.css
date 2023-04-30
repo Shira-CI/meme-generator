@@ -68,6 +68,11 @@
         padding: 10px;
     }
 
+    .about-modal{
+        font-size: 10px;
+        width: 40%;
+    }
+
     .editor-tools,
     .canvas-container {
         width: 400px;
@@ -164,12 +169,19 @@
         margin: 10px;
     }
 
-    /* .download-btn{
-        padding-top: 0px;
-    } */
+    .saved-meme{
+        width: 40%;
+        height: 40%;
 
-
-    .saved-memes-container,
+    }
+    .saved-meme img{
+        width: 100%;
+        height: 100%;
+    }
+.saved-memes-container{
+    gap: 15px;
+}
+   
     .gallery-container {
         background-color: #c2a8be;
         width: 100%;
