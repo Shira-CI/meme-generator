@@ -9,8 +9,8 @@
         height: 50px;
         margin: 5px;
         border-radius: 2em;
-        border: #bbfdf9 2px solid;
-        background-color: #d0e7f2;
+        /* border: #bbfdf9 2px solid; */
+        /* background-color: #d0e7f2; */
     }
 
     .saved-meme-container,
@@ -41,16 +41,13 @@
     }
 
     .card img {
-        box-shadow: rgba(70, 11, 79, 0.679) 0px 2px 4px, rgba(70, 11, 79, 0.679) 0px 7px 13px -3px, rgba(70, 11, 79, 0.679) 0px -3px 0px inset;
         border-radius: 2em;
-        border: 2px solid rgb;
         width: 100%;
         height: 100%;
     }
 
     .card {
         border-radius: 2em;
-        background-color: #4b8b95;
         width: 100%;
         height: 100%;
         margin: 10px;
@@ -63,8 +60,8 @@
     }
 
     header {
-        background-color: rgb(230, 241, 245);
-        background: linear-gradient(#c2a8be, #d7d9f5);
+        /* background-color: rgb(230, 241, 245); */
+        /* background: linear-gradient(#c2a8be, #d7d9f5); */
         padding: 10px;
     }
 
@@ -95,8 +92,8 @@
         top: 0;
         right: 0;
         height: 100vh;
-        background-color: rgb(230, 241, 245);
-        background: linear-gradient(#c9b8c7, #d7d9f5);
+        /* background-color: rgb(230, 241, 245); */
+        /* background: linear-gradient(#c9b8c7, #d7d9f5); */
         border-inline-start: 1px solid #ccc;
         min-width: 200px;
         transform: translateX(100%);
@@ -113,7 +110,7 @@
     }
 
     .main-nav-container>button {
-        border-bottom: 1px solid #ccc;
+        /* border-bottom: 1px solid #ccc; */
     }
 
     .main-nav-container button {
@@ -125,7 +122,7 @@
 
     .main-nav-container button:hover {
         background-color: rgb(230, 241, 245);
-        background: linear-gradient(#f4e7f2, #d7d9f5);
+        /* background: linear-gradient(#f4e7f2, #d7d9f5); */
     }
 
     .main-screen {
@@ -150,8 +147,6 @@
 
 /* SMALL 640-900 */
 @media (min-width: 640px) {
-
-
     .download-btn-input,
     .upload-image-input {
         opacity: 0;
@@ -162,7 +157,6 @@
 
     .download-btn,
     .upload-image-btn {
-        /* padding-top: 5px; */
         width: 9.375em;
         height: 34em;
         font-size: 1.25em;
@@ -183,7 +177,7 @@
 }
    
     .gallery-container {
-        background-color: #c2a8be;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
         width: 100%;
         height: 100%;
         display: grid;
@@ -192,12 +186,10 @@
         justify-items: center;
         padding: 10px;
         gap: 15px;
-        border: 2px solid rgb(157, 126, 142);
         border-radius: 2em;
     }
 
     .card img {
-        box-shadow: rgba(70, 11, 79, 0.679) 0px 2px 4px, rgba(70, 11, 79, 0.679) 0px 7px 13px -3px, rgba(70, 11, 79, 0.679) 0px -3px 0px inset;
         border-radius: 2em;
         border: 2px solid rgb;
         width: 100%;
@@ -206,9 +198,9 @@
 
     .card {
         border-radius: 2em;
-        background-color: #4b8b95;
         width: 100%;
         height: 100%;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     }
 
     .card:hover img {
@@ -218,8 +210,6 @@
     }
 
     header {
-        background-color: rgb(230, 241, 245);
-        background: linear-gradient(#c2a8be, #d7d9f5);
         padding: 10px;
     }
 
@@ -256,7 +246,6 @@
     .main-editor-page,
     .main-saved-page {
         justify-content: space-evenly;
-        background-color: #cfd1f0;
         border: 2px solid rgb(157, 126, 142);
         border-radius: 2em;
         flex-direction: row;
@@ -284,16 +273,6 @@
         background-color: none;
     }
 
-    .search-section button,
-    header button {
-        font-size: 14px;
-        width: 70px;
-        height: 50px;
-        margin: 5px;
-        border-radius: 2em;
-        border: #bbfdf9 2px solid;
-        background-color: #d0e7f2;
-    }
 }
 
 /* MEDIUM 900-1160 */
@@ -309,21 +288,13 @@
 
     .card {
         border-radius: 2em;
-        background-color: #4b8b95;
+
     }
 
     .gallery-container {
         grid-template-columns: repeat(4, 1fr);
     }
 
-    /* 
-    .upload-image-btn {
-        padding-top: 12px;
-    }
-
-    .download-btn{
-        padding-top: 0px;
-    } */
 
     .search-section button,
     header button {
@@ -332,8 +303,7 @@
         height: 50px;
         margin: 5px;
         border-radius: 2em;
-        border: #bbfdf9 2px solid;
-        background-color: #d0e7f2;
+        border: none;
     }
 
     .main-layout {
@@ -343,8 +313,6 @@
     }
 
     header {
-        background-color: rgb(230, 241, 245);
-        background: linear-gradient(#c2a8be, #d7d9f5);
         padding: 10px;
     }
 
@@ -354,10 +322,6 @@
         height: 400px;
     }
 
-    /* .main-editor-page {
-        height: 450px;
-        align-self: center;
-    } */
 }
 
 /* LARGE 1160+ */
@@ -371,11 +335,6 @@
     .gallery-container {
         grid-template-columns: repeat(5, 1fr);
     }
-
-    /* .upload-image-btn {
-        padding-top: 10px;
-    }
-  */
 }
 
 
@@ -403,11 +362,7 @@
 
     .search-section button {
         width: 300px;
-        font-size: 25px;
+        font-size: 20px;
     }
 
-    /* .download-btn,
-    .upload-image-btn {
-        padding-top: 5px;
-    } */
 }

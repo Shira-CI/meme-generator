@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/img/icon.png">
     <title>Get a meme!</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -15,7 +16,7 @@
         <div class="main-screen" onclick="toggleMenu()"></div>
 
         <header class="main-header full flex align-center space-between">
-            <section class="logo">MEMEGEN</section>
+            <section class="logo" onclick="OnGalleryBtn()">MEMEGEN</section>
             <nav class="main-nav-container">
                 <button class="btn nav-btn" onclick="OnGalleryBtn()">Gallery</button>
                 <button class="btn nav-btn" onclick="OnEditorBtn()">Meme Editor</button>
@@ -39,7 +40,7 @@
         <main class="main-gallery-page">
 
             <section class="search-section flex align-center space-between">
-                <input list="keywords" class="search-box" id="search-box" name="search-box" placeholder="search"
+                <input list="keywords" class="search-box" id="search-box" name="search-box" placeholder=" search"
                     onchange="onSetFilter(this.value)">
                 <button class="flexible-btn" onclick="onFlexibleBtn()">I'm flexible!</button>
 
