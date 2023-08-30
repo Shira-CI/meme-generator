@@ -1,4 +1,8 @@
+/* @font-face {
+    font-family: Montserrat-Regular;
+    src: url(/css/fonts/Montserrat/Montserrat-Regular.ttf);
+} */
 @font-face {
-    font-family: Montserrat-Medium;
-    src: url("css/fonts/Montserrat/Montserrat-Medium.ttf");
+    font-family: Montserrat-Regular;
+    src: url(css/fonts/Montserrat/Montserrat-Regular.ttf);
 }
