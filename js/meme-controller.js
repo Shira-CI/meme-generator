@@ -9,7 +9,6 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 function onInit() {
     gElCanvas = document.querySelector('#my-canvas')
     gCtx = gElCanvas.getContext('2d')
-    // resizeCanvas()
     addListeners()
     createLine()
     renderMeme()
@@ -170,7 +169,6 @@ function drawText() {
 
 function createFocus() {
     const line = getLine()
-    // console.log(line)
 
     if (!line) return
     if (!line.isClicked) return
@@ -197,9 +195,29 @@ function onAddLine() {
     renderMeme()
 }
 
+// function renderMeme() {
+//     const elImg = new Image()
+//     elImg.src = gImgs[gMeme.selectedImgId].url
+//     elImg.onload = () => {
+//         resizeCanvas()
+//         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
+//         drawText()
+//         createFocus()
+//     }
+// }
+
+
 function renderMeme() {
+    const meme = getMeme()
     const elImg = new Image()
-    elImg.src = gImgs[gMeme.selectedImgId].url
+
+    const currImg = gImgs.find(img => img.id === meme.selectedImgId)
+    if (!currImg) return
+
+    const isUploadedImg = currImg.keywords.includes('upload')
+    if (isUploadedImg) elImg.src = `${currImg.url}`
+    else elImg.src = `img/${(meme.selectedImgId) + 1}.jpg`
+
     elImg.onload = () => {
         resizeCanvas()
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
@@ -215,14 +233,11 @@ function OnEditorBtn() {
 function updateTextBox() {
     let currLine = getLine()
     let elTextBox = document.querySelector('.text-box')
-    // console.log(elTextBox)
     elTextBox.value = currLine.txt
 }
 
 function resetTextBox() {
-    // let currLine = getLine()
     let elTextBox = document.querySelector('.text-box')
-    // console.log(elTextBox)
     elTextBox.value = ''
 }
 
@@ -243,13 +258,11 @@ function onIncreaseTxt() {
 }
 
 function onColorPick(color) {
-    // console.log(color)
     setColor(color)
     renderMeme()
 }
 
 function onTxtInput(txt) {
-    // console.log(txt)
     setLineTxt(txt)
     renderMeme()
 }
@@ -280,9 +293,7 @@ function onSaveBtn() {
     const memeUrl = gElCanvas.toDataURL()
     const id = makeId()
     const savedGMeme = Object.assign({}, getMeme())
-    // console.log('savedGMeme' , savedGMeme)
     gSavedMemes.push({ id, memeUrl, savedGMeme })
-    // console.log('gSavedMemes' , gSavedMemes)
     saveMemeToStorage(gSavedMemes)
     renderSavedMemes()
     showSavedMemesPage()
@@ -296,8 +307,6 @@ function onSavedMemePage() {
 
 function onEditMeme(id) {
     let currMeme = gSavedMemes.find(meme => meme.id === id)
-    // console.log(currMeme)
-    // console.log(gElCanvas)
     gMeme = currMeme.savedGMeme
     renderMeme()
     showMeme()
@@ -306,8 +315,6 @@ function onEditMeme(id) {
 function renderSavedMemes() {
     let strHTML = ''
     gSavedMemes.map(meme => {
-        // console.log(meme.id)
-        // console.log(meme.memeUrl)
         strHTML += `<article class="saved-meme" data-id="${meme.id}" onclick="">
     <img src="${meme.memeUrl}">
     <button class="edit-meme" onclick="onEditMeme('${meme.id}')">Edit</button>
@@ -316,6 +323,3 @@ function renderSavedMemes() {
         document.querySelector('.saved-memes-container').innerHTML = strHTML
     })
 }
-
-/* <button class="delete-meme" onclick="onDeleteSavedMeme('${meme.id}')">Delete</button>
-<button class="download-meme" onclick="onDownloadSavedMeme('${meme.id}')">Download</button> */

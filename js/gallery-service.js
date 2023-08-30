@@ -1,14 +1,11 @@
 'use strict'
 
 let gImgs = createImgs()
-// console.log(gImgs)
 let gFilterBy = 'All'
 const gKeywords = ['happy', 'angry', 'cute', 'animal', 'famous', 'human', 'funny', 'love']
 
-
 function filterUpdate(keyWord) {
     gFilterBy = keyWord
-    // console.log(gFilterBy)
 }
 
 function getImgs() {
@@ -46,4 +43,10 @@ function createImg(id, url, keywords) {
         url,
         keywords
     }
+}
+
+function addUploadedImg(src) {
+    const id = makeId()
+    gImgs.push({ id, url: src, keywords: ['upload'] })
+    gMeme.selectedImgId = id
 }
