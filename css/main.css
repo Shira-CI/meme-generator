@@ -2,18 +2,18 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-size: 1rem;
-    font-family: Montserrat-Regular;
+    /* font-size: 1rem; */
+
 }
 
 body {
     background-color: #f1f8f7;
     color: rgb(41, 34, 34);
+    font-family: Montserrat-Regular;
 }
 
 footer {
     margin-block-start: 15px;
-    /* background: linear-gradient(#d7d9f5, #c2a8be); */
 }
 
 /* ABOUT */
