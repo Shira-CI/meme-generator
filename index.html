@@ -21,12 +21,12 @@
                 <button class="btn nav-btn" onclick="OnGalleryBtn()">Gallery</button>
                 <button class="btn nav-btn" onclick="OnEditorBtn()">Editor</button>
                 <button class="btn nav-btn" onclick="onSavedMemePage()">Saved Memes</button>
-                <button class="btn nav-btn" onclick="onAboutBtn()">About</button>
+                <!-- <button class="btn nav-btn" onclick="onAboutBtn()">About</button> -->
             </nav>
             <button class="btn-menu" onclick="toggleMenu()">☰</button>
         </header>
 
-        <section class="about-modal">
+        <!-- <section class="about-modal">
             <header>
                 <h1>About us</h1>
             </header>
@@ -35,7 +35,7 @@
                 adipisci, quod obcaecati itaque. Quam veritatis quasi aliquam.
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p>
             <button class="about-btn-modal" onclick="onCloseModal()">X</button>
-        </section>
+        </section> -->
 
         <main class="main-gallery-page">
 
@@ -102,7 +102,8 @@
                         </button>
 
                         <article class="font-family">
-                            <select name="font-change" class="font-change" title="fonts" onchange="onFontChange(this.value)">
+                            <select name="font-change" class="font-change" title="fonts"
+                                onchange="onFontChange(this.value)">
                                 <option value="Impact" title="fonts">Impact</option>
                                 <option value="Arial">Arial</option>
                                 <option value="serif">Times New Roman</option>
@@ -112,7 +113,8 @@
 
                     <article class="alignments">
                         <button class="alignment-left-btn" title="align left" onclick="onAlignBtn('left')"></button>
-                        <button class="alignment-center-btn" title="align center" onclick="onAlignBtn('center')"></button>
+                        <button class="alignment-center-btn" title="align center"
+                            onclick="onAlignBtn('center')"></button>
                         <button class="alignment-right-btn" title="align right" onclick="onAlignBtn('right')"></button>
                     </article>
 
@@ -128,9 +130,10 @@
                 </section>
 
                 <article class="sharing-options flex align-center justify-center">
-                    <button class="download-btn">
+                    <button class="download-btn"> Download
                         <a href="#" class="download-btn-input" onclick="onDownloadMeme(this)" download="my-meme.jpg">
-                        </a> Download</button>
+                        </a>
+                    </button>
 
                     <button class="sharing-btn" onclick="onUploadImg()">
                         Share on facebook

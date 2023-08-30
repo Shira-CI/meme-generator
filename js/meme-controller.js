@@ -18,7 +18,7 @@ function onInit() {
 }
 
 function onDownloadMeme(elLink) {
-    const imgContent = gElCanvas.toDataURL('image/jpeg') // image/jpeg the default format
+    const imgContent = gElCanvas.toDataURL('image/jpeg') 
     elLink.href = imgContent
 }
 
