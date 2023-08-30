@@ -8,7 +8,6 @@
     <link rel="icon" type="image/x-icon" href="img/icon.png">
     <title>Get a meme!</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- <link rel="stylesheet" href="css/fonts/Montserrat/Montserrat-Regular.ttf"> -->
 </head>
 
 <body onload="onInit()">
@@ -20,7 +19,7 @@
             <section class="logo" onclick="OnGalleryBtn()">MEMEGEN</section>
             <nav class="main-nav-container">
                 <button class="btn nav-btn" onclick="OnGalleryBtn()">Gallery</button>
-                <button class="btn nav-btn" onclick="OnEditorBtn()">Meme Editor</button>
+                <button class="btn nav-btn" onclick="OnEditorBtn()">Editor</button>
                 <button class="btn nav-btn" onclick="onSavedMemePage()">Saved Memes</button>
                 <button class="btn nav-btn" onclick="onAboutBtn()">About</button>
             </nav>
@@ -90,21 +89,21 @@
 
                 <section class="text-tools">
                     <article class="switch-line">
-                        <button class="add-line-btn" onclick="onAddLine()"></button>
-                        <button class="delete-line-btn" onclick="onDeleteLine()"></button>
-                        <button class="switch-line-btn" onclick="onSwitchLine()"></button>
+                        <button class="add-line-btn" title="add a line" onclick="onAddLine()"></button>
+                        <button class="delete-line-btn" title="delete line" onclick="onDeleteLine()"></button>
+                        <button class="switch-line-btn" title="switch lines" onclick="onSwitchLine()"></button>
                     </article>
 
                     <section class="color-font-txt">
-                        <button class="color-picker-container flex align-center justify-center">
+                        <button class="color-picker-container flex align-center justify-center" title="text color">
                             <label for="color-picker"></label>
                             <input class="color-picker-btn" type="color" name="color-picker" id="color-picker"
                                 oninput="onColorPick(this.value)" />
                         </button>
 
                         <article class="font-family">
-                            <select name="font-change" class="font-change" onchange="onFontChange(this.value)">
-                                <option value="Impact">Impact</option>
+                            <select name="font-change" class="font-change" title="fonts" onchange="onFontChange(this.value)">
+                                <option value="Impact" title="fonts">Impact</option>
                                 <option value="Arial">Arial</option>
                                 <option value="serif">Times New Roman</option>
                             </select>
@@ -112,17 +111,17 @@
                     </section>
 
                     <article class="alignments">
-                        <button class="alignment-left-btn" onclick="onAlignBtn('left')"></button>
-                        <button class="alignment-center-btn" onclick="onAlignBtn('center')"></button>
-                        <button class="alignment-right-btn" onclick="onAlignBtn('right')"></button>
+                        <button class="alignment-left-btn" title="align left" onclick="onAlignBtn('left')"></button>
+                        <button class="alignment-center-btn" title="align center" onclick="onAlignBtn('center')"></button>
+                        <button class="alignment-right-btn" title="align right" onclick="onAlignBtn('right')"></button>
                     </article>
 
                     <article class="font-size">
-                        <button class="increase-text-btn" onclick="onIncreaseTxt()"></button>
-                        <button class="decrease-text-btn" onclick="onDecreaseTxt()"></button>
+                        <button class="increase-text-btn" title="increase text" onclick="onIncreaseTxt()"></button>
+                        <button class="decrease-text-btn" title="decrease text" onclick="onDecreaseTxt()"></button>
 
-                        <button class="move-up-btn" onclick="onMoveUp()"></button>
-                        <button class="move-down-btn" onclick="onMoveDown()"></button>
+                        <button class="move-up-btn" title="move up" onclick="onMoveUp()"></button>
+                        <button class="move-down-btn" title="move down" onclick="onMoveDown()"></button>
                     </article>
 
 

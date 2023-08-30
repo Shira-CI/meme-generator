@@ -9,8 +9,6 @@
         height: 50px;
         margin: 5px;
         border-radius: 2em;
-        /* border: #bbfdf9 2px solid; */
-        /* background-color: #d0e7f2; */
     }
 
     .saved-meme-container,
@@ -246,7 +244,6 @@
     .main-editor-page,
     .main-saved-page {
         justify-content: space-evenly;
-        border: 2px solid rgb(157, 126, 142);
         border-radius: 2em;
         flex-direction: row;
     }
